@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/%22%3E>
+<head>
+    <meta charset=UTF-8">
+<title>Library</title>
+</head>
+<style>
+    body{
+        background-color: #ffccee
+    }
+</style>
+<body>
+<div id="content">
+    <div>
+        <a th:href="books">Ksiazki</a>
+    </div>
+    <tr th:each="basket_books : ${get_basket_books}">
+        <div th:text="${basket_books.title}"></div>
+    </tr>
+</div>
+</body>
+</html>
+
+
+

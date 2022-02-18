@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/%22%3E>
+<head>
+    <meta charset=UTF-8">
+<title>Library</title>
+</head>
+<style>
+    body{
+        background-color: #ffccee
+    }
+</style>
+<body>
+<div id="content">
+    <tr th:id="${book.id}" th:each="book : ${get_books}" class="book">
+        <div th:text="'Tytuł: ' + ${book.title}" class="title"></div>
+        <div th:text="'Autor: ' + ${book.author}" class="author"></div>
+        <div th:text="'Ilość stron: ' + ${book.pages}" class="pages"></div>
+        <div th:text="'Dostępność: ' + ${book.availability}" class="availability"></div>
+        <a th:if="${book.quantity > 0}" th:href="@{/books/{id}(id=${book.id})}">Wypożycz</a>
+        <br>
+        <br>
+    </tr>
+    <tr>
+        <a th:href="basket">Koszyk</a>
+    </tr>
+</div>
+</body>
+</html>
