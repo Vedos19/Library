@@ -13,9 +13,9 @@ public class Basket {
 
     public Basket() {}
 
-    public boolean checkIfBookIsInBasketById(int book_id){
+    public boolean checkIfBookIsInBasketByIsbn(int book_isbn){
         for(Book book : basket_books){
-            if(book.getId() == book_id){
+            if(book.getIsbn() == book_isbn){
                 return true;
             }
         }
@@ -28,13 +28,8 @@ public class Basket {
     }
 
     public void removeBook(Book book){
-        if(!checkIfBookIsInBasketById(book.getId())){
-            System.out.println("Produktu nie ma już w koszyku!");
-        }
-        else{
-            basket_books.remove(book);
-            book.addQuantityByOne();
-        }
+        this.basket_books.remove(book);
+        book.increaseQuantityByOne();
     }
 
     public List<Book> getBasketBooks(){

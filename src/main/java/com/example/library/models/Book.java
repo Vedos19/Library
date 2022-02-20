@@ -25,10 +25,10 @@ public class Book {
         this.author = author;
 
         if(quantity > 0){
-            this.availability = "w magazynie";
+            this.availability = "Tak";
         }
         else{
-            this.availability = "niedostępna";
+            this.availability = "Nie";
         }
     }
 
@@ -92,14 +92,14 @@ public class Book {
                 '}';
     }
 
-    public void addQuantityByOne(){
+    public void increaseQuantityByOne(){
         setQuantity(getQuantity()+1);
 
         if(quantity > 0){
-            this.availability = "w magazynie";
+            this.availability = "Tak";
         }
         else{
-            this.availability = "niedostępna";
+            this.availability = "Nie";
         }
     }
 
@@ -107,10 +107,10 @@ public class Book {
         setQuantity(getQuantity()-1);
 
         if(quantity > 0){
-            this.availability = "w magazynie";
+            this.availability = "Tak";
         }
         else{
-            this.availability = "niedostępna";
+            this.availability = "Nie";
         }
     }
 }

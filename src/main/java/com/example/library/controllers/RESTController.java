@@ -1,6 +1,6 @@
 package com.example.library.controllers;
 
-import com.example.library.interfaces.IBookRepository;
+import com.example.library.dao.IBookRepository;
 import com.example.library.models.Book;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

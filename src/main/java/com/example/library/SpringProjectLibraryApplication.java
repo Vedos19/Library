@@ -1,6 +1,6 @@
 package com.example.library;
 
-import com.example.library.interfaces.IBookRepository;
+import com.example.library.dao.IBookRepository;
 import com.example.library.models.Book;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,11 +23,10 @@ public class SpringProjectLibraryApplication {
     }
 
     public void insertBooks(IBookRepository bookRepository) {
-        bookRepository.save(new Book(5465, 1, 250, "Jak żyć z dużym penisem", "Konrad Rzepliński"));
-        bookRepository.save(new Book(4564, 2, 270, "Jak znaleźć deklarację klasy", "Marek Szot"));
-        bookRepository.save(new Book(3454, 0, 320, "Jak zrobić formę na ciastkach i czekoladzie", "Artur Gaik"));
-        bookRepository.save(new Book(7837, 2, 170, "Jak chodzić tydzień w jednej koszulce", "Szymon Prochal"));
-        bookRepository.save(new Book(3378, 3, 280, "Jak żyć z Hanną uwu", "Krzysztof Wlazło"));
-        bookRepository.save(new Book(3548, 1, 280, "Jak żyć z bezczelnym chamem", "Natalia Wcisło-Wlazło"));
+        bookRepository.save(new Book(5465, 2, 960, "Ostatnia więź. Kronika nieciosanego tronu. Tom 3", "Staveley Brian"));
+        bookRepository.save(new Book(4564, 1, 1425, "Władca Pierścieni: Drużyna Pierścienia / Dwie wieże / Powrót króla", "Tolkien John Ronald Reuel"));
+        bookRepository.save(new Book(3454, 0, 176, "451 stopni Fahrenheita", "Bradbury Ray"));
+        bookRepository.save(new Book(7837, 2, 170, "Warhammer 2 ed. RPG - Podręcznik Główny", "Copernicus Corporation"));
+        bookRepository.save(new Book(3378, 3, 592, "Uniwersum Metro 2033. Metro 2033", "Glukhovsky Dmitry"));
     }
 }
