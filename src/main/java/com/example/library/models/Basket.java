@@ -7,11 +7,8 @@ public class Basket {
     private int id;
     private List<Book> basket_books = new ArrayList<>();
 
-    public Basket(int id) {
-        this.id = id;
+    public Basket() {
     }
-
-    public Basket() {}
 
     public boolean checkIfBookIsInBasketByIsbn(int book_isbn){
         for(Book book : basket_books){
@@ -34,9 +31,5 @@ public class Basket {
 
     public List<Book> getBasketBooks(){
         return basket_books;
-    }
-
-    public void clearBasket() {
-        this.basket_books = new ArrayList<>();
     }
 }

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Entity
 public class Book {
@@ -16,6 +17,8 @@ public class Book {
     private String title;
     private String author;
     private String availability;
+    private LocalDate rentDate;
+    private LocalDate deadlineDate;
 
     public Book(int isbn, int quantity, int pages, String title, String author) {
         this.isbn = isbn;
@@ -56,6 +59,12 @@ public class Book {
     public String getAvailability() {
         return availability;
     }
+    public LocalDate getRentDate() {
+        return rentDate;
+    }
+    public LocalDate getDeadlineDate() {
+        return deadlineDate;
+    }
 
     public void setId(int id) {
         this.isbn = id;
@@ -77,6 +86,12 @@ public class Book {
     }
     public void setAvailability(String availability) {
         this.availability = availability;
+    }
+    public void setRentDate(LocalDate rentDate) {
+        this.rentDate = rentDate;
+    }
+    public void setDeadlineDate(LocalDate deadlineDate) {
+        this.deadlineDate = deadlineDate;
     }
 
     @Override

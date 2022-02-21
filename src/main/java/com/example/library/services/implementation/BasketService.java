@@ -7,6 +7,8 @@ import com.example.library.services.IBasketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,12 +26,17 @@ public class BasketService implements IBasketService {
         if(!basket.checkIfBookIsInBasketByIsbn(book_isbn)){
             if(book.getQuantity() > 0){
                 Book dummy_book = new Book();
-                dummy_book.setId(book.getId());
                 dummy_book.setIsbn(book.getIsbn());
                 dummy_book.setPages(book.getPages());
                 dummy_book.setAuthor(book.getAuthor());
                 dummy_book.setTitle(book.getTitle());
                 dummy_book.setQuantity(1);
+
+                LocalDate current_date = LocalDate.now();
+                LocalDate next_week_date = LocalDate.now().plusDays(7);
+
+                dummy_book.setRentDate(current_date);
+                dummy_book.setDeadlineDate(next_week_date);
 
                 basket.addBook(dummy_book);
                 book.subtractQuantityByOne();
@@ -39,14 +46,9 @@ public class BasketService implements IBasketService {
     }
 
     public void removeBook(int book_id){
-        System.out.println("BOOK ID Z BSERVICE: " + book_id);
-        int book_isbn = bookRepository.getById(book_id).getIsbn();
-        System.out.println("KSIAZKA: " + bookRepository.getById(book_id));
-        if(basket.checkIfBookIsInBasketByIsbn(book_isbn)){
-            basket.removeBook(bookRepository.getById(book_id));
-            bookRepository.getById(book_id).increaseQuantityByOne();
-            bookRepository.save(bookRepository.getById(book_id));
-        }
+        basket.removeBook(bookRepository.getById(book_id));
+        bookRepository.getById(book_id).increaseQuantityByOne();
+        bookRepository.save(bookRepository.getById(book_id));
     }
 
     public List<Book> getBasketBooks(){
